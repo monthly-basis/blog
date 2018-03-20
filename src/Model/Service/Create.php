@@ -1,5 +1,5 @@
 <?php
-namespace LeoGalleguillos\Blog\Model\Service\Blog;
+namespace LeoGalleguillos\Blog\Model\Service;
 
 use Exception;
 use LeoGalleguillos\Flash\Model\Service as FlashService;
