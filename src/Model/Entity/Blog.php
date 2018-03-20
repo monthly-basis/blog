@@ -34,6 +34,11 @@ class Blog
         return $this->name;
     }
 
+    public function getSlug() : string
+    {
+        return $this->slug;
+    }
+
     public function getUserId() : int
     {
         return $this->userId;
@@ -53,6 +58,12 @@ class Blog
     public function setDescription(string $description) : BlogEntity\Blog
     {
         $this->description = $description;
+        return $this;
+    }
+
+    public function setSlug(string $slug) : BlogEntity\Blog
+    {
+        $this->slug = $slug;
         return $this;
     }
 
