@@ -7,6 +7,7 @@ use LeoGalleguillos\Blog\Model\Entity as BlogEntity;
 use LeoGalleguillos\Blog\Model\Factory as BlogFactory;
 use LeoGalleguillos\Blog\Model\Service as BlogService;
 use LeoGalleguillos\Blog\Model\Table as BlogTable;
+use LeoGalleguillos\String\Model\Service as StringService;
 use LeoGalleguillos\User\Model\Entity as UserEntity;
 
 class Create
@@ -14,11 +15,13 @@ class Create
     public function __construct(
         FlashService\Flash $flashService,
         BlogFactory\Blog $blogFactory,
-        BlogTable\Blog $blogTable
+        BlogTable\Blog $blogTable,
+        StringService\UrlFriendly $urlFriendlyService
     ) {
-        $this->flashService    = $flashService;
-        $this->blogFactory = $blogFactory;
-        $this->blogTable   = $blogTable;
+        $this->flashService       = $flashService;
+        $this->blogFactory        = $blogFactory;
+        $this->blogTable          = $blogTable;
+        $this->urlFriendlyService = $urlFriendlyService;
     }
 
     /**
@@ -44,10 +47,12 @@ class Create
             throw new Exception('Invalid form input.');
         }
 
+        $blogSlug = $this->urlFriendlyService->getUrlFriendly($_POST['name']);
         $blogId = $this->blogTable->insert(
             $userEntity->getUserId(),
-            $_POST['subject'],
-            $_POST['message']
+            $_POST['name'],
+            $blogSlug,
+            $_POST['description']
         );
 
         return $this->blogFactory->buildFromBlogId($blogId);

@@ -20,8 +20,7 @@ class Blog
         int $userId,
         string $name,
         string $slug,
-        string $description,
-        string $website
+        string $description
     ) {
         $sql = '
             INSERT
