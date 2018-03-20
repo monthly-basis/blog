@@ -26,34 +26,21 @@ class Blog
         $sql = '
             INSERT
               INTO `blog` (
-                       `user_id`, `name`, `slug`, `description`, `website`, `created`
+                       `user_id`, `name`, `slug`, `description`, `created`
                    )
-            VALUES (?, ?, ?, ?, ?, UTC_TIMESTAMP())
+            VALUES (?, ?, ?, ?, UTC_TIMESTAMP())
                  ;
         ';
         $parameters = [
             $userId,
             $name,
             $slug,
-            $description,
-            $website
+            $description
         ];
         return $this->adapter
                     ->query($sql)
                     ->execute($parameters)
                     ->getGeneratedValue();
-    }
-
-    public function isUsernameInTable($username)
-    {
-        $sql = '
-            SELECT COUNT(*) AS `count`
-              FROM `user`
-             WHERE `username` = ?
-                 ;
-        ';
-        $row = $this->adapter->query($sql, [$username])->current();
-        return (bool) $row['count'];
     }
 
     public function selectCount()

@@ -1,42 +1,42 @@
 <?php
-namespace LeoGalleguillos\Question\Model\Service\Question;
+namespace LeoGalleguillos\Blog\Model\Service\Blog;
 
 use Exception;
 use LeoGalleguillos\Flash\Model\Service as FlashService;
-use LeoGalleguillos\Question\Model\Entity as QuestionEntity;
-use LeoGalleguillos\Question\Model\Factory as QuestionFactory;
-use LeoGalleguillos\Question\Model\Service as QuestionService;
-use LeoGalleguillos\Question\Model\Table as QuestionTable;
+use LeoGalleguillos\Blog\Model\Entity as BlogEntity;
+use LeoGalleguillos\Blog\Model\Factory as BlogFactory;
+use LeoGalleguillos\Blog\Model\Service as BlogService;
+use LeoGalleguillos\Blog\Model\Table as BlogTable;
 use LeoGalleguillos\User\Model\Entity as UserEntity;
 
 class Create
 {
     public function __construct(
         FlashService\Flash $flashService,
-        QuestionFactory\Question $questionFactory,
-        QuestionTable\Question $questionTable
+        BlogFactory\Blog $blogFactory,
+        BlogTable\Blog $blogTable
     ) {
         $this->flashService    = $flashService;
-        $this->questionFactory = $questionFactory;
-        $this->questionTable   = $questionTable;
+        $this->blogFactory = $blogFactory;
+        $this->blogTable   = $blogTable;
     }
 
     /**
-     * Submit.
+     * Create.
      *
      * @param $userId
-     * @return QuestionEntity\Question
+     * @return BlogEntity\Blog
      */
-    public function submit(
+    public function create(
         UserEntity\User $userEntity = null
-    ) : QuestionEntity\Question {
+    ) : BlogEntity\Blog {
         $errors = [];
 
-        if (empty($_POST['subject'])) {
-            $errors[] = 'Invalid subject.';
+        if (empty($_POST['name'])) {
+            $errors[] = 'Invalid name.';
         }
-        if (empty($_POST['message'])) {
-            $errors[] = 'Invalid message.';
+        if (empty($_POST['description'])) {
+            $errors[] = 'Invalid description.';
         }
 
         if ($errors) {
@@ -44,12 +44,12 @@ class Create
             throw new Exception('Invalid form input.');
         }
 
-        $questionId = $this->questionTable->insert(
+        $blogId = $this->blogTable->insert(
             $userEntity->getUserId(),
             $_POST['subject'],
             $_POST['message']
         );
 
-        return $this->questionFactory->buildFromQuestionId($questionId);
+        return $this->blogFactory->buildFromBlogId($blogId);
     }
 }
