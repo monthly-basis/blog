@@ -51,4 +51,18 @@ class Blog
             $this->blogTable->selectWhereBlogId($blogId)
         );
     }
+
+    /**
+     * Build from slug.
+     *
+     * @param string $slug
+     * @return BlogEntity\Blog
+     */
+    public function buildFromSlug(
+        string $slug
+    ) : BlogEntity\Blog {
+        return $this->buildFromArray(
+            $this->blogTable->selectWhereSlug($slug)
+        );
+    }
 }

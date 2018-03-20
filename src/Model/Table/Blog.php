@@ -115,7 +115,6 @@ class Blog
                  , `name`
                  , `slug`
                  , `description`
-                 , `website`
                  , `views`
                  , `created`
               FROM `blog`
