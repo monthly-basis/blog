@@ -25,7 +25,7 @@ class Blog
     ) {
         $sql = '
             INSERT
-              INTO `business` (
+              INTO `blog` (
                        `user_id`, `name`, `slug`, `description`, `website`, `created`
                    )
             VALUES (?, ?, ?, ?, ?, UTC_TIMESTAMP())
@@ -60,7 +60,7 @@ class Blog
     {
         $sql = '
             SELECT COUNT(*) AS `count`
-              FROM `business`
+              FROM `blog`
                  ;
         ';
         $row = $this->adapter->query($sql)->execute()->current();
@@ -71,8 +71,8 @@ class Blog
     {
         $sql = '
             SELECT COUNT(*) AS `count`
-              FROM `business`
-             WHERE `business`.`user_id` = :userId
+              FROM `blog`
+             WHERE `blog`.`user_id` = :userId
                  ;
         ';
         $parameters = [
@@ -85,7 +85,7 @@ class Blog
     public function selectOrderByCreatedDesc() : Generator
     {
         $sql = '
-            SELECT `business_id`
+            SELECT `blog_id`
                  , `user_id`
                  , `name`
                  , `slug`
@@ -93,7 +93,7 @@ class Blog
                  , `website`
                  , `views`
                  , `created`
-              FROM `business`
+              FROM `blog`
              ORDER
                 BY `created` DESC
              LIMIT 100
@@ -104,28 +104,27 @@ class Blog
         }
     }
 
-    public function selectWhereBlogId(int $businessId) : array
+    public function selectWhereBlogId(int $blogId) : array
     {
         $sql = '
-            SELECT `business_id`
+            SELECT `blog_id`
                  , `user_id`
                  , `name`
                  , `slug`
                  , `description`
-                 , `website`
                  , `views`
                  , `created`
-              FROM `business`
-             WHERE `business_id` = ?
+              FROM `blog`
+             WHERE `blog_id` = ?
                  ;
         ';
-        return $this->adapter->query($sql)->execute([$businessId])->current();
+        return $this->adapter->query($sql)->execute([$blogId])->current();
     }
 
     public function selectWhereSlug(string $slug) : array
     {
         $sql = '
-            SELECT `business_id`
+            SELECT `blog_id`
                  , `user_id`
                  , `name`
                  , `slug`
@@ -133,7 +132,7 @@ class Blog
                  , `website`
                  , `views`
                  , `created`
-              FROM `business`
+              FROM `blog`
              WHERE `slug` = ?
                  ;
         ';
@@ -143,7 +142,7 @@ class Blog
     public function selectWhereUserId(int $userId) : Generator
     {
         $sql = '
-            SELECT `business_id`
+            SELECT `blog_id`
                  , `user_id`
                  , `name`
                  , `slug`
@@ -151,10 +150,10 @@ class Blog
                  , `website`
                  , `views`
                  , `created`
-              FROM `business`
+              FROM `blog`
              WHERE `user_id` = :userId
              ORDER
-                BY `business`.`name` ASC
+                BY `blog`.`name` ASC
                  ;
         ';
         $parameters = [
