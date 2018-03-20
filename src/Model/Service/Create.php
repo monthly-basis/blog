@@ -12,6 +12,14 @@ use LeoGalleguillos\User\Model\Entity as UserEntity;
 
 class Create
 {
+    /**
+     * Construct.
+     *
+     * @param FlashService\Flash $flashService,
+     * @param BlogFactory\Blog $blogFactory,
+     * @param BlogTable\Blog $blogTable,
+     * @param StringService\UrlFriendly $urlFriendlyService
+     */
     public function __construct(
         FlashService\Flash $flashService,
         BlogFactory\Blog $blogFactory,
