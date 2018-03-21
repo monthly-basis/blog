@@ -50,6 +50,9 @@ class Module
                         $serviceManager->get(BlogTable\Blog::class)
                     );
                 },
+                BlogService\RootRelativeUrl::class => function ($serviceManager) {
+                    return new BlogService\RootRelativeUrl();
+                },
                 BlogTable\Blog::class => function ($serviceManager) {
                     return new BlogTable\Blog(
                         $serviceManager->get('main')
