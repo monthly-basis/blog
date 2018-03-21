@@ -44,4 +44,29 @@ class BlogTest extends TableTestCase
             $this->blogTable
         );
     }
+
+    public function testInsertAndSelectCount()
+    {
+        $this->assertSame(
+            0,
+            $this->blogTable->selectCount()
+        );
+        $this->blogTable->insert(1, 'name', 'slug', 'description');
+        $this->blogTable->insert(1, 'name', 'slug2', 'description');
+        $this->blogTable->insert(1, 'name', 'slug3', 'description');
+        $this->assertSame(
+            3,
+            $this->blogTable->selectCount()
+        );
+    }
+
+    public function testSelectWhereUserId()
+    {
+        $this->blogTable->insert(1, 'name', 'slug', 'description');
+        $array = $this->blogTable->selectWhereBlogId(1);
+        $this->assertInternalType(
+            'array',
+            $array
+        );
+    }
 }
