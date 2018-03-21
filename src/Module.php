@@ -39,6 +39,11 @@ class Module
                         $serviceManager->get(StringService\UrlFriendly::class)
                     );
                 },
+                BlogService\IncrementViews::class => function ($serviceManager) {
+                    return new BlogService\IncrementViews(
+                        $serviceManager->get(BlogTable\Blog::class)
+                    );
+                },
                 BlogTable\Blog::class => function ($serviceManager) {
                     return new BlogTable\Blog(
                         $serviceManager->get('main')

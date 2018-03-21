@@ -149,18 +149,18 @@ class Blog
         }
     }
 
-    public function updateViewsWhereUserId(int $userId) : bool
+    public function updateViewsWhereBlogId(int $blogId) : bool
     {
         $sql = '
-            UPDATE `user`
-               SET `user`.`views` = `user`.`views` + 1
-             WHERE `user`.`user_id` = ?
+            UPDATE `blog`
+               SET `blog`.`views` = `blog`.`views` + 1
+             WHERE `blog`.`blog_id` = ?
                  ;
         ';
         $parameters = [
-            $userId
+            $blogId
         ];
-        return (bool) $this->adapter->query($sql, $parameters)->getAffectedRows();
+        return (bool) $this->adapter->query($sql)->execute($parameters)->getAffectedRows();
     }
 
     public function updateWhereUserId(ArrayObject $arrayObject, int $userId) : bool
