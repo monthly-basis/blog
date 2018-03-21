@@ -31,6 +31,12 @@ class Module
                         $serviceManager->get(BlogTable\Blog::class)
                     );
                 },
+                BlogService\Blogs::class => function ($serviceManager) {
+                    return new BlogService\Blogs(
+                        $serviceManager->get(BlogFactory\Blog::class),
+                        $serviceManager->get(BlogTable\Blog::class)
+                    );
+                },
                 BlogService\Create::class => function ($serviceManager) {
                     return new BlogService\Create(
                         $serviceManager->get(FlashService\Flash::class),
