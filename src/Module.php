@@ -43,6 +43,17 @@ class Module
                         $serviceManager->get(BlogTable\Blog::class)
                     );
                 },
+                BlogService\Blogs\User\Count::class => function ($serviceManager) {
+                    return new BlogService\Blogs\User\Count(
+                        $serviceManager->get(BlogTable\Blog::class)
+                    );
+                },
+                BlogService\Blogs\User\Get::class => function ($serviceManager) {
+                    return new BlogService\Blogs\User\Get(
+                        $serviceManager->get(BlogFactory\Blog::class),
+                        $serviceManager->get(BlogTable\Blog::class)
+                    );
+                },
                 BlogService\Create::class => function ($serviceManager) {
                     return new BlogService\Create(
                         $serviceManager->get(FlashService\Flash::class),
