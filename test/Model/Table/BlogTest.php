@@ -60,13 +60,21 @@ class BlogTest extends TableTestCase
         );
     }
 
-    public function testSelectWhereUserId()
+    public function testSelectWhereBlogId()
     {
-        $this->blogTable->insert(1, 'name', 'slug', 'description');
+        $this->blogTable->insert(234, 'the name', 'slug', 'description');
         $array = $this->blogTable->selectWhereBlogId(1);
-        $this->assertInternalType(
-            'array',
-            $array
+        $this->assertSame(
+            $array['blog_id'],
+            '1'
+        );
+        $this->assertSame(
+            $array['user_id'],
+            '234'
+        );
+        $this->assertSame(
+            $array['name'],
+            'the name'
         );
     }
 }
