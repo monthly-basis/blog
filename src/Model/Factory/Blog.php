@@ -39,6 +39,10 @@ class Blog
                    ->setSlug($array['slug'])
                    ->setViews($array['views']);
 
+        $blogEntity->setUserEntity(
+            $this->userFactory->buildFromUserId($array['user_id'])
+        );
+
         return $blogEntity;
     }
 
