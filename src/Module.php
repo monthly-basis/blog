@@ -7,6 +7,7 @@ use LeoGalleguillos\Blog\Model\Table as BlogTable;
 use LeoGalleguillos\Blog\View\Helper as BlogHelper;
 use LeoGalleguillos\Flash\Model\Service as FlashService;
 use LeoGalleguillos\String\Model\Service as StringService;
+use LeoGalleguillos\User\Model\Factory as UserFactory;
 
 class Module
 {
@@ -34,7 +35,8 @@ class Module
             'factories' => [
                 BlogFactory\Blog::class => function ($serviceManager) {
                     return new BlogFactory\Blog(
-                        $serviceManager->get(BlogTable\Blog::class)
+                        $serviceManager->get(BlogTable\Blog::class),
+                        $serviceManager->get(UserFactory\User::class)
                     );
                 },
                 BlogService\Blogs::class => function ($serviceManager) {

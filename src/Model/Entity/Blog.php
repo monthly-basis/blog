@@ -3,6 +3,7 @@ namespace LeoGalleguillos\Blog\Model\Entity;
 
 use DateTime;
 use LeoGalleguillos\Blog\Model\Entity as BlogEntity;
+use LeoGalleguillos\User\Model\Entity as UserEntity;
 
 class Blog
 {
@@ -11,7 +12,12 @@ class Blog
     protected $description;
     protected $name;
     protected $slug;
-    protected $userId;
+
+    /**
+     * @var UserEntity\User
+     */
+    protected $userEntity;
+
     protected $views;
 
     public function getBlogId() : int
@@ -39,9 +45,9 @@ class Blog
         return $this->slug;
     }
 
-    public function getUserId() : int
+    public function getUserEntity() : UserEntity\User
     {
-        return $this->userId;
+        return $this->userEntity;
     }
 
     public function getViews() : int
@@ -79,9 +85,9 @@ class Blog
         return $this;
     }
 
-    public function setUserId(int $userId) : BlogEntity\Blog
+    public function setUserEntity(UserEntity\User $userEntity) : BlogEntity\Blog
     {
-        $this->userId = $userId;
+        $this->userEntity = $userEntity;
         return $this;
     }
 

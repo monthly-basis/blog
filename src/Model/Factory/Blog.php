@@ -4,6 +4,7 @@ namespace LeoGalleguillos\Blog\Model\Factory;
 use DateTime;
 use LeoGalleguillos\Blog\Model\Entity as BlogEntity;
 use LeoGalleguillos\Blog\Model\Table as BlogTable;
+use LeoGalleguillos\User\Model\Factory as UserFactory;
 
 class Blog
 {
@@ -11,11 +12,14 @@ class Blog
      * Construct
      *
      * @param BlogTable\Blog $blogTable
+     * @param UserFactory\User $userFactory
      */
     public function __construct(
-        BlogTable\Blog $blogTable
+        BlogTable\Blog $blogTable,
+        UserFactory\User $userFactory
     ) {
-        $this->blogTable = $blogTable;
+        $this->blogTable   = $blogTable;
+        $this->userFactory = $userFactory;
     }
 
     /**

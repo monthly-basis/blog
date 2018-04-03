@@ -5,6 +5,7 @@ return [
         'LeoGalleguillos\Blog',
         'LeoGalleguillos\Flash',
         'LeoGalleguillos\String',
+        'LeoGalleguillos\User',
         'Zend\Db',
         'Zend\Router',
     ],
