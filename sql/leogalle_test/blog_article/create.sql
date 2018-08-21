@@ -7,5 +7,5 @@ CREATE TABLE `blog_article` (
     `views` int unsigned not null default 0,
     `created` datetime not null,
     PRIMARY KEY (`blog_article_id`),
-    INDEX `blog_id` (`blog_id`),
-) charset=utf8mb4 collation utf8mb4_unicode_ci;
+    INDEX `blog_id` (`blog_id`)
+) default charset=utf8mb4 collate=utf8mb4_unicode_ci;
