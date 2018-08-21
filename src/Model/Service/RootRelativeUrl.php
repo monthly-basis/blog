@@ -11,9 +11,11 @@ class RootRelativeUrl
      * @param BlogEntity\Blog $blogEntity
      * @return string
      */
-    public function getRootRelativeUrl(BlogEntity\Blog $blogEntity) : string
+    public function getRootRelativeUrl(BlogEntity\Blog $blogEntity): string
     {
         return '/blogs/'
+             . $blogEntity->getBlogId()
+             . '/'
              . $blogEntity->getSlug();
     }
 }
