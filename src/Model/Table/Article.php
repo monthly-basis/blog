@@ -21,7 +21,7 @@ class Article
         int $userId,
         string $title,
         string $body
-    ) {
+    ): int {
         $sql = '
             INSERT
               INTO `article` (
@@ -36,10 +36,10 @@ class Article
             $title,
             $body,
         ];
-        return $this->adapter
-                    ->query($sql)
-                    ->execute($parameters)
-                    ->getGeneratedValue();
+        return (int) $this->adapter
+                          ->query($sql)
+                          ->execute($parameters)
+                          ->getGeneratedValue();
     }
 
     public function selectWhereArticleId(int $articleId): array

@@ -44,4 +44,18 @@ class ArticleTest extends TableTestCase
             $this->articleTable
         );
     }
+
+    public function testInsert()
+    {
+        $articleId = $this->articleTable->insert(
+            1,
+            2,
+            'title',
+            'body'
+        );
+        $this->assertSame(
+            1,
+            $articleId
+        );
+    }
 }
