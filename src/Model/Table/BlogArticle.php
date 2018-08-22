@@ -41,4 +41,28 @@ class BlogArticle
                     ->execute($parameters)
                     ->getGeneratedValue();
     }
+
+    /**
+     * @yield array
+     * @return Generator
+     */
+    public function selectWhereBlogIdOrderByCreatedDesc(int $blogId): Generator
+    {
+        $sql = '
+            SELECT `blog_article_id`
+                 , `blog_id`
+                 , `user_id`, `title`, `body`, `views`, `created`
+              FROM `blog_article`
+             WHERE `blog_id` = ?
+             ORDER
+                BY `created` DESC
+                 ;
+        ';
+        $parameters = [
+            $blogId,
+        ];
+        foreach ($this->adapter->query($sql)->execute($parameters) as $array) {
+            yield $array;
+        }
+    }
 }
