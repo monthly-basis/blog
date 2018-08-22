@@ -54,7 +54,6 @@ class Module
                     return new BlogService\Article\RootRelativeUrl(
                         $serviceManager->get(BlogFactory\Blog::class),
                         $serviceManager->get(BlogService\RootRelativeUrl::class),
-                        $serviceManager->get(BlogTable\Article::class),
                         $serviceManager->get(StringService\UrlFriendly::class)
                     );
                 },

@@ -13,12 +13,10 @@ class RootRelativeUrl
     public function __construct(
         BlogFactory\Blog $blogFactory,
         BlogService\RootRelativeUrl $rootRelativeUrlService,
-        BlogTable\Article $articleTable,
         StringService\UrlFriendly $urlFriendlyService
     ) {
         $this->blogFactory            = $blogFactory;
         $this->rootRelativeUrlService = $rootRelativeUrlService;
-        $this->articleTable           = $articleTable;
         $this->urlFriendlyService     = $urlFriendlyService;
     }
 
