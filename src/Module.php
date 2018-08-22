@@ -42,6 +42,7 @@ class Module
             'factories' => [
                 BlogFactory\Article::class => function ($serviceManager) {
                     return new BlogFactory\Article(
+                        $serviceManager->get(BlogTable\Article::class)
                     );
                 },
                 BlogFactory\Blog::class => function ($serviceManager) {

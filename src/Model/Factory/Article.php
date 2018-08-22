@@ -3,9 +3,24 @@ namespace LeoGalleguillos\Blog\Model\Factory;
 
 use DateTime;
 use LeoGalleguillos\Blog\Model\Entity as BlogEntity;
+use LeoGalleguillos\Blog\Model\Table as BlogTable;
 
 class Article
 {
+    public function __construct(
+        BlogTable\Article $articleTable
+    ) {
+        $this->articleTable = $articleTable;
+    }
+
+    public function buildFromArticleId(int $articleId): BlogEntity\Article
+    {
+        $array = $this->articleTable->selectWhereArticleId($articleId);
+        return $this->buildFromArray(
+            $array
+        );
+    }
+
     /**
      * Build from array.
      *

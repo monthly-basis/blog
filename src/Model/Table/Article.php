@@ -42,6 +42,22 @@ class Article
                     ->getGeneratedValue();
     }
 
+    public function selectWhereArticleId(int $articleId): array
+    {
+        $sql = '
+            SELECT `article_id`
+                 , `blog_id`
+                 , `user_id`, `title`, `body`, `views`, `created`
+              FROM `article`
+             WHERE `article_id` = ?
+                 ;
+        ';
+        $parameters = [
+            $articleId,
+        ];
+        return $this->adapter->query($sql)->execute($parameters)->current();
+    }
+
     /**
      * @yield array
      * @return Generator
