@@ -30,7 +30,7 @@ class RootRelativeUrl
         );
 
         return $blogRootRelativeUrl
-             . '/'
+             . '/articles/'
              . $articleEntity->getArticleId()
              . '/'
              . $this->urlFriendlyService->getUrlFriendly($articleEntity->getTitle());
