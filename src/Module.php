@@ -17,9 +17,15 @@ class Module
         return [
             'view_helpers' => [
                 'aliases' => [
+                    'getArticleRootRelativeUrl' => BlogHelper\Article\RootRelativeUrl::class,
                     'getBlogRootRelativeUrl' => BlogHelper\RootRelativeUrl::class,
                 ],
                 'factories' => [
+                    BlogHelper\Article\RootRelativeUrl::class => function ($serviceManager) {
+                        return new BlogHelper\Article\RootRelativeUrl(
+                            $serviceManager->get(BlogService\Article\RootRelativeUrl::class)
+                        );
+                    },
                     BlogHelper\RootRelativeUrl::class => function ($serviceManager) {
                         return new BlogHelper\RootRelativeUrl(
                             $serviceManager->get(BlogService\RootRelativeUrl::class)
