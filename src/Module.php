@@ -44,6 +44,14 @@ class Module
                         $serviceManager->get(UserFactory\User::class)
                     );
                 },
+                BlogService\Article\RootRelativeUrl::class => function ($serviceManager) {
+                    return new BlogService\Article\RootRelativeUrl(
+                        $serviceManager->get(BlogFactory\Blog::class),
+                        $serviceManager->get(BlogService\RootRelativeUrl::class),
+                        $serviceManager->get(BlogTable\Article::class),
+                        $serviceManager->get(StringService\UrlFriendly::class)
+                    );
+                },
                 BlogService\Articles::class => function ($serviceManager) {
                     return new BlogService\Articles(
                         $serviceManager->get(BlogFactory\Article::class),
