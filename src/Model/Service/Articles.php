@@ -10,11 +10,11 @@ use LeoGalleguillos\Blog\Model\Table as BlogTable;
 class Articles
 {
     public function __construct(
-        BlogFactory\Blog $blogFactory,
-        BlogTable\Blog $blogTable
+        BlogFactory\Article $articleFactory,
+        BlogTable\Article $articleTable
     ) {
-        $this->blogFactory = $blogFactory;
-        $this->blogTable   = $blogTable;
+        $this->articleFactory = $articleFactory;
+        $this->articleTable   = $articleTable;
     }
 
     /**

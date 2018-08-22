@@ -44,6 +44,12 @@ class Module
                         $serviceManager->get(UserFactory\User::class)
                     );
                 },
+                BlogService\Articles::class => function ($serviceManager) {
+                    return new BlogService\Articles(
+                        $serviceManager->get(BlogFactory\Article::class),
+                        $serviceManager->get(BlogTable\Article::class)
+                    );
+                },
                 BlogService\Blogs::class => function ($serviceManager) {
                     return new BlogService\Blogs(
                         $serviceManager->get(BlogFactory\Blog::class),
