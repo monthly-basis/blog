@@ -87,8 +87,8 @@ class Module
                         $serviceManager->get('main')
                     );
                 },
-                BlogTable\BlogArticle::class => function ($serviceManager) {
-                    return new BlogTable\BlogArticle(
+                BlogTable\Article::class => function ($serviceManager) {
+                    return new BlogTable\Article(
                         $serviceManager->get('main')
                     );
                 },

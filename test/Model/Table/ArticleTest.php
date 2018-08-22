@@ -7,19 +7,19 @@ use LeoGalleguillos\BlogTest\TableTestCase;
 use Zend\Db\Adapter\Adapter;
 use PHPUnit\Framework\TestCase;
 
-class BlogArticleTest extends TableTestCase
+class ArticleTest extends TableTestCase
 {
     /**
      * @var string
      */
-    protected $sqlPath = __DIR__ . '/../../..' . '/sql/leogalle_test/blog_article/';
+    protected $sqlPath = __DIR__ . '/../../..' . '/sql/leogalle_test/article/';
 
     protected function setUp()
     {
         $configArray     = require(__DIR__ . '/../../../config/autoload/local.php');
         $configArray     = $configArray['db']['adapters']['leogalle_test'];
         $this->adapter   = new Adapter($configArray);
-        $this->blogArticleTable = new BlogTable\BlogArticle($this->adapter);
+        $this->articleTable = new BlogTable\Article($this->adapter);
 
         $this->dropTable();
         $this->createTable();
@@ -40,8 +40,8 @@ class BlogArticleTest extends TableTestCase
     public function testInitialize()
     {
         $this->assertInstanceOf(
-            BlogTable\BlogArticle::class,
-            $this->blogArticleTable
+            BlogTable\Article::class,
+            $this->articleTable
         );
     }
 }

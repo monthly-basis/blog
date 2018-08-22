@@ -4,7 +4,7 @@ namespace LeoGalleguillos\Blog\Model\Table;
 use Generator;
 use Zend\Db\Adapter\Adapter;
 
-class BlogArticle
+class Article
 {
     /**
      * @var Adapter
@@ -24,7 +24,7 @@ class BlogArticle
     ) {
         $sql = '
             INSERT
-              INTO `blog_article` (
+              INTO `article` (
                        `blog_id`, `user_id`, `title`, `body`, `created`
                    )
             VALUES (?, ?, ?, ?, UTC_TIMESTAMP())
@@ -49,10 +49,10 @@ class BlogArticle
     public function selectWhereBlogIdOrderByCreatedDesc(int $blogId): Generator
     {
         $sql = '
-            SELECT `blog_article_id`
+            SELECT `article_id`
                  , `blog_id`
                  , `user_id`, `title`, `body`, `views`, `created`
-              FROM `blog_article`
+              FROM `article`
              WHERE `blog_id` = ?
              ORDER
                 BY `created` DESC
