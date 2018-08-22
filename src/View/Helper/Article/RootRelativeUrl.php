@@ -1,6 +1,7 @@
 <?php
 namespace LeoGalleguillos\Blog\View\Helper\Article;
 
+use LeoGalleguillos\Blog\Model\Entity as BlogEntity;
 use LeoGalleguillos\Blog\Model\Service as BlogService;
 use Zend\View\Helper\AbstractHelper;
 
