@@ -16,7 +16,7 @@ class Article
         array $array
     ): BlogEntity\Article {
         $articleEntity = new BlogEntity\Article();
-        $articleEntity->setArticleId($array['blog_article_id'])
+        $articleEntity->setArticleId($array['article_id'])
                       ->setBlogId($array['blog_id'])
                       ->setUserId($array['user_id'])
                       ->setTitle($array['title'])
