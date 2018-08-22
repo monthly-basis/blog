@@ -1,5 +1,5 @@
 <?php
-namespace LeoGalleguillos\BlogTest\Model\Entity;
+namespace LeoGalleguillos\BlogTest\Model\Service;
 
 use DateTime;
 use Generator;
