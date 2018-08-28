@@ -3,7 +3,7 @@ CREATE TABLE `article` (
     `blog_id` int(10) unsigned not null,
     `user_id` int(10) not null,
     `title` varchar(255) not null,
-    `body` varchar(255) not null,
+    `body` text not null,
     `views` int unsigned not null default 0,
     `created` datetime not null,
     PRIMARY KEY (`article_id`),
