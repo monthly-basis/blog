@@ -17,6 +17,7 @@ class Module
         return [
             'view_helpers' => [
                 'aliases' => [
+                    'doesVisitorOwnBlog' => BlogHelper\DoesVisitorOwnBlog::class,
                     'getArticleRootRelativeUrl' => BlogHelper\Article\RootRelativeUrl::class,
                     'getBlogRootRelativeUrl' => BlogHelper\RootRelativeUrl::class,
                 ],
@@ -24,6 +25,11 @@ class Module
                     BlogHelper\Article\RootRelativeUrl::class => function ($serviceManager) {
                         return new BlogHelper\Article\RootRelativeUrl(
                             $serviceManager->get(BlogService\Article\RootRelativeUrl::class)
+                        );
+                    },
+                    BlogHelper\DoesVisitorOwnBlog::class => function ($serviceManager) {
+                        return new BlogHelper\DoesVisitorOwnBlog(
+                            $serviceManager->get(BlogService\DoesVisitorOwnBlog::class)
                         );
                     },
                     BlogHelper\RootRelativeUrl::class => function ($serviceManager) {
