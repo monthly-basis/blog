@@ -51,6 +51,11 @@ class Module
                         $serviceManager->get(UserFactory\User::class)
                     );
                 },
+                BlogService\Article\Delete::class => function ($serviceManager) {
+                    return new BlogService\Article\Delete(
+                        $serviceManager->get(BlogTable\Article\Deleted::class)
+                    );
+                },
                 BlogService\Article\RootRelativeUrl::class => function ($serviceManager) {
                     return new BlogService\Article\RootRelativeUrl(
                         $serviceManager->get(BlogFactory\Blog::class),
