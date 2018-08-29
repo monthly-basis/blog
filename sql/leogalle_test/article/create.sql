@@ -6,6 +6,7 @@ CREATE TABLE `article` (
     `body` text not null,
     `views` int unsigned not null default 0,
     `created` datetime not null,
+    `deleted` datetime default null,
     PRIMARY KEY (`article_id`),
     INDEX `blog_id` (`blog_id`)
 ) default charset=utf8mb4 collate=utf8mb4_unicode_ci;
