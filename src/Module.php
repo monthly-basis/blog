@@ -112,6 +112,11 @@ class Module
                         $serviceManager->get('main')
                     );
                 },
+                BlogTable\Article\Deleted::class => function ($serviceManager) {
+                    return new BlogTable\Article\Deleted(
+                        $serviceManager->get('main')
+                    );
+                },
             ],
         ];
     }
