@@ -80,6 +80,11 @@ class Module
                         $serviceManager->get(StringService\UrlFriendly::class)
                     );
                 },
+                BlogService\Article\Url::class => function ($serviceManager) {
+                    return new BlogService\Article\Url(
+                        $serviceManager->get(BlogService\Article\RootRelativeUrl::class)
+                    );
+                },
                 BlogService\Articles::class => function ($serviceManager) {
                     return new BlogService\Articles(
                         $serviceManager->get(BlogFactory\Article::class),
