@@ -62,14 +62,16 @@ class Article
      * @yield array
      * @return Generator
      */
-    public function selectWhereBlogIdOrderByCreatedDesc(int $blogId): Generator
-    {
+    public function selectWhereBlogIdAndDeletedIsNullOrderByCreatedDesc(
+        int $blogId
+    ): Generator {
         $sql = '
             SELECT `article_id`
                  , `blog_id`
                  , `user_id`, `title`, `body`, `views`, `created`
               FROM `article`
              WHERE `blog_id` = ?
+               AND `deleted` IS NULL
              ORDER
                 BY `created` DESC
                  ;

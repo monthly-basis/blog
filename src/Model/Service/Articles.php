@@ -26,7 +26,7 @@ class Articles
      */
     public function getArticles(BlogEntity\Blog $blogEntity): Generator
     {
-        $generator = $this->articleTable->selectWhereBlogIdOrderByCreatedDesc(
+        $generator = $this->articleTable->selectWhereBlogIdAndDeletedIsNullOrderByCreatedDesc(
             $blogEntity->getBlogId()
         );
         foreach ($generator as $array) {

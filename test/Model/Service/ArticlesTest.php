@@ -40,7 +40,7 @@ class ArticlesTest extends TestCase
         $articleEntities  = $this->articlesService->getArticles(
             $blogEntity
         );
-        $this->articleTableMock->method('selectWhereBlogIdOrderByCreatedDesc')->willReturn(
+        $this->articleTableMock->method('selectWhereBlogIdAndDeletedIsNullOrderByCreatedDesc')->willReturn(
             $this->yieldArrays()
         );
         $this->assertInstanceOf(
