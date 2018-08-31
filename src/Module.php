@@ -124,6 +124,11 @@ class Module
                 BlogService\RootRelativeUrl::class => function ($serviceManager) {
                     return new BlogService\RootRelativeUrl();
                 },
+                BlogService\Url::class => function ($serviceManager) {
+                    return new BlogService\Url(
+                        $serviceManager->get(BlogService\RootRelativeUrl::class)
+                    );
+                },
                 BlogTable\Blog::class => function ($serviceManager) {
                     return new BlogTable\Blog(
                         $serviceManager->get('main')
