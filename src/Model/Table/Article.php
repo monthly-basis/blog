@@ -83,4 +83,27 @@ class Article
             yield $array;
         }
     }
+
+    public function updateSetTitleBodyWhereArticleId(
+        string $title,
+        string $body,
+        int $articleId
+    ): bool {
+        $sql = '
+            UPDATE `article`
+               SET `article`.`title` = ?
+                 , `article`.`body` = ?
+             WHERE `article`.`article_id` = ?
+                 ;
+        ';
+        $parameters = [
+            $title,
+            $body,
+            $articleId,
+        ];
+        return (bool) $this->adapter
+                           ->query($sql)
+                           ->execute($parameters)
+                           ->getAffectedRows();
+    }
 }
