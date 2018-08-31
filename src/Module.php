@@ -17,11 +17,17 @@ class Module
         return [
             'view_helpers' => [
                 'aliases' => [
+                    'doesVisitorOwnArticle' => BlogHelper\Article\DoesVisitorOwnArticle::class,
                     'doesVisitorOwnBlog' => BlogHelper\DoesVisitorOwnBlog::class,
                     'getArticleRootRelativeUrl' => BlogHelper\Article\RootRelativeUrl::class,
                     'getBlogRootRelativeUrl' => BlogHelper\RootRelativeUrl::class,
                 ],
                 'factories' => [
+                    BlogHelper\Article\DoesVisitorOwnArticle::class => function ($serviceManager) {
+                        return new BlogHelper\Article\DoesVisitorOwnArticle(
+                            $serviceManager->get(BlogService\Article\DoesVisitorOwnArticle::class)
+                        );
+                    },
                     BlogHelper\Article\RootRelativeUrl::class => function ($serviceManager) {
                         return new BlogHelper\Article\RootRelativeUrl(
                             $serviceManager->get(BlogService\Article\RootRelativeUrl::class)
