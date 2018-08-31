@@ -16,6 +16,6 @@ class Url
     {
         return 'https://'
              . $_SERVER['HTTP_HOST']
-             . $this->rootRelativeUrlService->getRootRelativeUrl($blogEntity);
+             . $this->rootRelativeUrlService->getRootRelativeUrl($articleEntity);
     }
 }
