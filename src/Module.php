@@ -62,6 +62,11 @@ class Module
                         $serviceManager->get(BlogTable\Article\Deleted::class)
                     );
                 },
+                BlogService\Article\DoesVisitorOwnArticle::class => function ($serviceManager) {
+                    return new BlogService\Article\DoesVisitorOwnArticle(
+                        $serviceManager->get(UserService\LoggedInUser::class)
+                    );
+                },
                 BlogService\Article\RootRelativeUrl::class => function ($serviceManager) {
                     return new BlogService\Article\RootRelativeUrl(
                         $serviceManager->get(BlogFactory\Blog::class),
