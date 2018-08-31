@@ -8,5 +8,5 @@ CREATE TABLE `article` (
     `created` datetime not null,
     `deleted` datetime default null,
     PRIMARY KEY (`article_id`),
-    INDEX `blog_id` (`blog_id`)
+    INDEX `blog_id_deleted_created` (`blog_id`, `deleted`, `created`)
 ) default charset=utf8mb4 collate=utf8mb4_unicode_ci;
