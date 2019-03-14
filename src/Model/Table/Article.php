@@ -106,4 +106,21 @@ class Article
                            ->execute($parameters)
                            ->getAffectedRows();
     }
+
+    public function updateSetViewsViewsPlusOneWhereArticleId(int $articleId): int
+    {
+        $sql = '
+            UPDATE `article`
+               SET `article`.`views` = `article`.`views` + 1
+             WHERE `article`.`article_id` = ?
+                 ;
+        ';
+        $parameters = [
+            $articleId,
+        ];
+        return (int) $this->adapter
+            ->query($sql)
+            ->execute($parameters)
+            ->getAffectedRows();
+    }
 }
