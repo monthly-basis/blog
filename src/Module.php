@@ -73,6 +73,11 @@ class Module
                         $serviceManager->get(UserService\LoggedInUser::class)
                     );
                 },
+                BlogService\Article\IncrementViews::class => function ($sm) {
+                    return new BlogService\Article\IncrementViews(
+                        $sm->get(BlogTable\Article::class)
+                    );
+                },
                 BlogService\Article\RootRelativeUrl::class => function ($serviceManager) {
                     return new BlogService\Article\RootRelativeUrl(
                         $serviceManager->get(BlogFactory\Blog::class),
