@@ -16,7 +16,7 @@ class Blog
     /**
      * @var UserEntity\User
      */
-    protected $userEntity;
+    protected $user;
 
     protected $views;
 
@@ -45,9 +45,9 @@ class Blog
         return $this->slug;
     }
 
-    public function getUserEntity() : UserEntity\User
+    public function getUser(): UserEntity\User
     {
-        return $this->userEntity;
+        return $this->user;
     }
 
     public function getViews() : int
@@ -85,9 +85,9 @@ class Blog
         return $this;
     }
 
-    public function setUserEntity(UserEntity\User $userEntity) : BlogEntity\Blog
+    public function setUser(UserEntity\User $user) : BlogEntity\Blog
     {
-        $this->userEntity = $userEntity;
+        $this->user = $user;
         return $this;
     }
 

@@ -25,12 +25,12 @@ class BlogTest extends TestCase
     {
         $userEntity = new UserEntity\User();
         $this->assertSame(
-            $this->blogEntity->setUserEntity($userEntity),
+            $this->blogEntity->setUser($userEntity),
             $this->blogEntity
         );
         $this->assertSame(
             $userEntity,
-            $this->blogEntity->getUserEntity()
+            $this->blogEntity->getUser()
         );
 
         $created = new DateTime();
