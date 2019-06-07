@@ -21,6 +21,6 @@ class DoesVisitorOwnBlog
             return false;
         }
 
-        return ($userEntity->getUserId() == $blogEntity->getUserEntity()->getUserId());
+        return ($userEntity->getUserId() == $blogEntity->getUser()->getUserId());
     }
 }
