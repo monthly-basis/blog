@@ -2,46 +2,21 @@
 namespace LeoGalleguillos\BlogTest\Model\Table;
 
 use Generator;
+use Laminas\Db as LaminasDb;
 use LeoGalleguillos\Blog\Model\Table as BlogTable;
-use LeoGalleguillos\BlogTest\TableTestCase;
+use LeoGalleguillos\Test\TableTestCase;
 use Zend\Db\Adapter\Adapter;
 use PHPUnit\Framework\TestCase;
 
 class BlogTest extends TableTestCase
 {
-    /**
-     * @var string
-     */
-    protected $sqlPath = __DIR__ . '/../../..' . '/sql/test/blog/';
-
     protected function setUp(): void
     {
-        $configArray     = require(__DIR__ . '/../../../config/autoload/local.php');
-        $configArray     = $configArray['db']['adapters']['test'];
-        $this->adapter   = new Adapter($configArray);
-        $this->blogTable = new BlogTable\Blog($this->adapter);
+        $this->dropAndCreateTable('blog');
 
-        $this->dropTable();
-        $this->createTable();
-    }
-
-    protected function dropTable()
-    {
-        $sql = file_get_contents($this->sqlPath . 'drop.sql');
-        $result = $this->adapter->query($sql)->execute();
-    }
-
-    protected function createTable()
-    {
-        $sql = file_get_contents($this->sqlPath . 'create.sql');
-        $result = $this->adapter->query($sql)->execute();
-    }
-
-    public function testInitialize()
-    {
-        $this->assertInstanceOf(
-            BlogTable\Blog::class,
-            $this->blogTable
+        $this->blogTable = new BlogTable\Blog(
+            $this->getAdapter(),
+            $this->getTableGateway('blog')
         );
     }
 
@@ -57,6 +32,51 @@ class BlogTest extends TableTestCase
         $this->assertSame(
             3,
             $this->blogTable->selectCount()
+        );
+    }
+
+    public function test_select()
+    {
+        $this->getTableGateway('blog')->insert([
+            'user_id' => 1,
+            'name' => 'name 1',
+            'slug' => 'slug1',
+            'description' => 'description',
+            'created' => new LaminasDb\Sql\Expression('UTC_TIMESTAMP()'),
+        ]);
+        $this->getTableGateway('blog')->insert([
+            'user_id' => 1,
+            'name' => 'name 2',
+            'slug' => 'slug2',
+            'description' => 'description',
+            'created' => new LaminasDb\Sql\Expression('UTC_TIMESTAMP()'),
+        ]);
+        $this->getTableGateway('blog')->insert([
+            'user_id' => 1,
+            'name' => 'name 3',
+            'slug' => 'slug3',
+            'description' => 'description',
+            'created' => new LaminasDb\Sql\Expression('UTC_TIMESTAMP()'),
+        ]);
+        $this->getTableGateway('blog')->update(
+            ['deleted_datetime' => new LaminasDb\Sql\Expression('UTC_TIMESTAMP()')],
+            ['blog_id' => 2]
+        );
+
+        $resultSet = $this->blogTable->select();
+
+        $this->assertCount(
+            2,
+            $resultSet
+        );
+        $array = iterator_to_array($resultSet);
+        $this->assertSame(
+            'name 1',
+            $array[0]['name']
+        );
+        $this->assertSame(
+            'name 3',
+            $array[1]['name']
         );
     }
 

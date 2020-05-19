@@ -2,7 +2,7 @@
 namespace LeoGalleguillos\Blog\Model\Table;
 
 use Generator;
-use Zend\Db\Adapter\Adapter;
+use Laminas\Db as LaminasDb;
 
 class Blog
 {
@@ -11,9 +11,12 @@ class Blog
      */
     protected $adapter;
 
-    public function __construct(Adapter $adapter)
-    {
-        $this->adapter = $adapter;
+    public function __construct(
+        LaminasDb\Adapter\Adapter $adapter,
+        LaminasDb\TableGateway\TableGateway $blogTableGateway
+    ) {
+        $this->adapter          = $adapter;
+        $this->blogTableGateway = $blogTableGateway;
     }
 
     public function insert(
@@ -40,6 +43,15 @@ class Blog
                     ->query($sql)
                     ->execute($parameters)
                     ->getGeneratedValue();
+    }
+
+    public function select(): LaminasDb\ResultSet\ResultSet
+    {
+        return $this->blogTableGateway->select(function (LaminasDb\Sql\Select $select) {
+            $select->where(['deleted_datetime' => null])
+                ->order('created DESC')
+                ->limit(100);
+        });
     }
 
     public function selectCount()

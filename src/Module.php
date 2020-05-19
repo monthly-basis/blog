@@ -143,7 +143,8 @@ class Module
                 },
                 BlogTable\Blog::class => function ($sm) {
                     return new BlogTable\Blog(
-                        $sm->get('blog')
+                        $sm->get('blog'),
+                        $sm->get('laminas-db-table-gateway-table-gateway-blog')
                     );
                 },
                 BlogTable\Article::class => function ($sm) {
