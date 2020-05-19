@@ -24,24 +24,24 @@ class Module
                     'getBlogRootRelativeUrl' => BlogHelper\RootRelativeUrl::class,
                 ],
                 'factories' => [
-                    BlogHelper\Article\DoesVisitorOwnArticle::class => function ($serviceManager) {
+                    BlogHelper\Article\DoesVisitorOwnArticle::class => function ($sm) {
                         return new BlogHelper\Article\DoesVisitorOwnArticle(
-                            $serviceManager->get(BlogService\Article\DoesVisitorOwnArticle::class)
+                            $sm->get(BlogService\Article\DoesVisitorOwnArticle::class)
                         );
                     },
-                    BlogHelper\Article\RootRelativeUrl::class => function ($serviceManager) {
+                    BlogHelper\Article\RootRelativeUrl::class => function ($sm) {
                         return new BlogHelper\Article\RootRelativeUrl(
-                            $serviceManager->get(BlogService\Article\RootRelativeUrl::class)
+                            $sm->get(BlogService\Article\RootRelativeUrl::class)
                         );
                     },
-                    BlogHelper\DoesVisitorOwnBlog::class => function ($serviceManager) {
+                    BlogHelper\DoesVisitorOwnBlog::class => function ($sm) {
                         return new BlogHelper\DoesVisitorOwnBlog(
-                            $serviceManager->get(BlogService\DoesVisitorOwnBlog::class)
+                            $sm->get(BlogService\DoesVisitorOwnBlog::class)
                         );
                     },
-                    BlogHelper\RootRelativeUrl::class => function ($serviceManager) {
+                    BlogHelper\RootRelativeUrl::class => function ($sm) {
                         return new BlogHelper\RootRelativeUrl(
-                            $serviceManager->get(BlogService\RootRelativeUrl::class)
+                            $sm->get(BlogService\RootRelativeUrl::class)
                         );
                     },
                 ],
@@ -53,25 +53,25 @@ class Module
     {
         return [
             'factories' => [
-                BlogFactory\Article::class => function ($serviceManager) {
+                BlogFactory\Article::class => function ($sm) {
                     return new BlogFactory\Article(
-                        $serviceManager->get(BlogTable\Article::class)
+                        $sm->get(BlogTable\Article::class)
                     );
                 },
-                BlogFactory\Blog::class => function ($serviceManager) {
+                BlogFactory\Blog::class => function ($sm) {
                     return new BlogFactory\Blog(
-                        $serviceManager->get(BlogTable\Blog::class),
-                        $serviceManager->get(UserFactory\User::class)
+                        $sm->get(BlogTable\Blog::class),
+                        $sm->get(UserFactory\User::class)
                     );
                 },
-                BlogService\Article\Delete::class => function ($serviceManager) {
+                BlogService\Article\Delete::class => function ($sm) {
                     return new BlogService\Article\Delete(
-                        $serviceManager->get(BlogTable\Article\Deleted::class)
+                        $sm->get(BlogTable\Article\Deleted::class)
                     );
                 },
-                BlogService\Article\DoesVisitorOwnArticle::class => function ($serviceManager) {
+                BlogService\Article\DoesVisitorOwnArticle::class => function ($sm) {
                     return new BlogService\Article\DoesVisitorOwnArticle(
-                        $serviceManager->get(UserService\LoggedInUser::class)
+                        $sm->get(UserService\LoggedInUser::class)
                     );
                 },
                 BlogService\Article\IncrementViews::class => function ($sm) {
@@ -79,81 +79,81 @@ class Module
                         $sm->get(BlogTable\Article::class)
                     );
                 },
-                BlogService\Article\RootRelativeUrl::class => function ($serviceManager) {
+                BlogService\Article\RootRelativeUrl::class => function ($sm) {
                     return new BlogService\Article\RootRelativeUrl(
-                        $serviceManager->get(BlogFactory\Blog::class),
-                        $serviceManager->get(BlogService\RootRelativeUrl::class),
-                        $serviceManager->get(StringService\UrlFriendly::class)
+                        $sm->get(BlogFactory\Blog::class),
+                        $sm->get(BlogService\RootRelativeUrl::class),
+                        $sm->get(StringService\UrlFriendly::class)
                     );
                 },
-                BlogService\Article\Url::class => function ($serviceManager) {
+                BlogService\Article\Url::class => function ($sm) {
                     return new BlogService\Article\Url(
-                        $serviceManager->get(BlogService\Article\RootRelativeUrl::class)
+                        $sm->get(BlogService\Article\RootRelativeUrl::class)
                     );
                 },
-                BlogService\Articles::class => function ($serviceManager) {
+                BlogService\Articles::class => function ($sm) {
                     return new BlogService\Articles(
-                        $serviceManager->get(BlogFactory\Article::class),
-                        $serviceManager->get(BlogTable\Article::class)
+                        $sm->get(BlogFactory\Article::class),
+                        $sm->get(BlogTable\Article::class)
                     );
                 },
-                BlogService\Blogs::class => function ($serviceManager) {
+                BlogService\Blogs::class => function ($sm) {
                     return new BlogService\Blogs(
-                        $serviceManager->get(BlogFactory\Blog::class),
-                        $serviceManager->get(BlogTable\Blog::class),
-                        $serviceManager->get('laminas-db-table-gateway-table-gateway-blog')
+                        $sm->get(BlogFactory\Blog::class),
+                        $sm->get(BlogTable\Blog::class),
+                        $sm->get('laminas-db-table-gateway-table-gateway-blog')
                     );
                 },
-                BlogService\Blogs\User\Count::class => function ($serviceManager) {
+                BlogService\Blogs\User\Count::class => function ($sm) {
                     return new BlogService\Blogs\User\Count(
-                        $serviceManager->get(BlogTable\Blog::class)
+                        $sm->get(BlogTable\Blog::class)
                     );
                 },
-                BlogService\Blogs\User\Get::class => function ($serviceManager) {
+                BlogService\Blogs\User\Get::class => function ($sm) {
                     return new BlogService\Blogs\User\Get(
-                        $serviceManager->get(BlogFactory\Blog::class),
-                        $serviceManager->get(BlogTable\Blog::class)
+                        $sm->get(BlogFactory\Blog::class),
+                        $sm->get(BlogTable\Blog::class)
                     );
                 },
-                BlogService\Create::class => function ($serviceManager) {
+                BlogService\Create::class => function ($sm) {
                     return new BlogService\Create(
-                        $serviceManager->get(FlashService\Flash::class),
-                        $serviceManager->get(BlogFactory\Blog::class),
-                        $serviceManager->get(BlogTable\Blog::class),
-                        $serviceManager->get(StringService\UrlFriendly::class)
+                        $sm->get(FlashService\Flash::class),
+                        $sm->get(BlogFactory\Blog::class),
+                        $sm->get(BlogTable\Blog::class),
+                        $sm->get(StringService\UrlFriendly::class)
                     );
                 },
-                BlogService\DoesVisitorOwnBlog::class => function ($serviceManager) {
+                BlogService\DoesVisitorOwnBlog::class => function ($sm) {
                     return new BlogService\DoesVisitorOwnBlog(
-                        $serviceManager->get(UserService\LoggedInUser::class)
+                        $sm->get(UserService\LoggedInUser::class)
                     );
                 },
-                BlogService\IncrementViews::class => function ($serviceManager) {
+                BlogService\IncrementViews::class => function ($sm) {
                     return new BlogService\IncrementViews(
-                        $serviceManager->get(BlogTable\Blog::class)
+                        $sm->get(BlogTable\Blog::class)
                     );
                 },
-                BlogService\RootRelativeUrl::class => function ($serviceManager) {
+                BlogService\RootRelativeUrl::class => function ($sm) {
                     return new BlogService\RootRelativeUrl();
                 },
-                BlogService\Url::class => function ($serviceManager) {
+                BlogService\Url::class => function ($sm) {
                     return new BlogService\Url(
-                        $serviceManager->get(BlogService\RootRelativeUrl::class)
+                        $sm->get(BlogService\RootRelativeUrl::class)
                     );
                 },
-                BlogTable\Blog::class => function ($serviceManager) {
+                BlogTable\Blog::class => function ($sm) {
                     return new BlogTable\Blog(
-                        $serviceManager->get('main')
+                        $sm->get('main')
                     );
                 },
-                BlogTable\Article::class => function ($serviceManager) {
+                BlogTable\Article::class => function ($sm) {
                     return new BlogTable\Article(
-                        $serviceManager->get('main')
+                        $sm->get('main')
                     );
                 },
-                BlogTable\Article\Deleted::class => function ($serviceManager) {
+                BlogTable\Article\Deleted::class => function ($sm) {
                     return new BlogTable\Article\Deleted(
-                        $serviceManager->get('main')
+                        $sm->get('main')
                     );
                 },
                 'laminas-db-table-gateway-table-gateway-blog' => function ($sm) {
