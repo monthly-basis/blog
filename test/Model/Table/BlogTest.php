@@ -12,12 +12,12 @@ class BlogTest extends TableTestCase
     /**
      * @var string
      */
-    protected $sqlPath = __DIR__ . '/../../..' . '/sql/leogalle_test/blog/';
+    protected $sqlPath = __DIR__ . '/../../..' . '/sql/test/blog/';
 
     protected function setUp()
     {
         $configArray     = require(__DIR__ . '/../../../config/autoload/local.php');
-        $configArray     = $configArray['db']['adapters']['leogalle_test'];
+        $configArray     = $configArray['db']['adapters']['test'];
         $this->adapter   = new Adapter($configArray);
         $this->blogTable = new BlogTable\Blog($this->adapter);
 
