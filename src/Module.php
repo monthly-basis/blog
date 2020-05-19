@@ -1,6 +1,7 @@
 <?php
 namespace LeoGalleguillos\Blog;
 
+use Laminas\Db as LaminasDb;
 use LeoGalleguillos\Blog\Model\Factory as BlogFactory;
 use LeoGalleguillos\Blog\Model\Service as BlogService;
 use LeoGalleguillos\Blog\Model\Table as BlogTable;
@@ -152,6 +153,12 @@ class Module
                 BlogTable\Article\Deleted::class => function ($serviceManager) {
                     return new BlogTable\Article\Deleted(
                         $serviceManager->get('main')
+                    );
+                },
+                'laminas-db-table-gateway-table-gateway-blog' => function ($sm) {
+                    return new LaminasDb\TableGateway\TableGateway(
+                        'blog',
+                        $sm->get('blog')
                     );
                 },
             ],
