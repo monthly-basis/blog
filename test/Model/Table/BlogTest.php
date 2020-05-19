@@ -14,7 +14,7 @@ class BlogTest extends TableTestCase
      */
     protected $sqlPath = __DIR__ . '/../../..' . '/sql/test/blog/';
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $configArray     = require(__DIR__ . '/../../../config/autoload/local.php');
         $configArray     = $configArray['db']['adapters']['test'];

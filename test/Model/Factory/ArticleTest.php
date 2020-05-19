@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 
 class ArticleTest extends TestCase
 {
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->articleTableMock = $this->createMock(
             BlogTable\Article::class

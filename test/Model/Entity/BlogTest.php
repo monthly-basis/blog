@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class BlogTest extends TestCase
 {
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->blogEntity = new BlogEntity\Blog();
     }

@@ -12,7 +12,7 @@ use PHPUnit\Framework\TestCase;
 
 class RootRelativeUrlTest extends TestCase
 {
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->blogFactoryMock = $this->createMock(
             BlogFactory\Blog::class
