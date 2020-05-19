@@ -12,7 +12,9 @@ class BlogTest extends TableTestCase
 {
     protected function setUp(): void
     {
+        $this->setForeignKeyChecks(0);
         $this->dropAndCreateTable('blog');
+        $this->setForeignKeyChecks(1);
 
         $this->blogTable = new BlogTable\Blog(
             $this->getAdapter(),
