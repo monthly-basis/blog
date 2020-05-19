@@ -9,4 +9,4 @@ CREATE TABLE `article` (
     `deleted` datetime default null,
     PRIMARY KEY (`article_id`),
     INDEX `blog_id_deleted_created` (`blog_id`, `deleted`, `created`)
-) default charset=utf8mb4 collate=utf8mb4_unicode_ci;
+) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
