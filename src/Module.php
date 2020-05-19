@@ -143,17 +143,17 @@ class Module
                 },
                 BlogTable\Blog::class => function ($sm) {
                     return new BlogTable\Blog(
-                        $sm->get('main')
+                        $sm->get('blog')
                     );
                 },
                 BlogTable\Article::class => function ($sm) {
                     return new BlogTable\Article(
-                        $sm->get('main')
+                        $sm->get('blog')
                     );
                 },
                 BlogTable\Article\Deleted::class => function ($sm) {
                     return new BlogTable\Article\Deleted(
-                        $sm->get('main')
+                        $sm->get('blog')
                     );
                 },
                 'laminas-db-table-gateway-table-gateway-blog' => function ($sm) {
