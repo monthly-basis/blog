@@ -2,6 +2,7 @@
 namespace LeoGalleguillos\Blog\Model\Service;
 
 use Generator;
+use Laminas\Db as LaminasDb;
 use LeoGalleguillos\Blog\Model\Entity as BlogEntity;
 use LeoGalleguillos\Blog\Model\Factory as BlogFactory;
 use LeoGalleguillos\Blog\Model\Service as BlogService;
@@ -11,10 +12,12 @@ class Blogs
 {
     public function __construct(
         BlogFactory\Blog $blogFactory,
-        BlogTable\Blog $blogTable
+        BlogTable\Blog $blogTable,
+        LaminasDb\TableGateway\TableGateway $blogTableGateway
     ) {
-        $this->blogFactory = $blogFactory;
-        $this->blogTable   = $blogTable;
+        $this->blogFactory      = $blogFactory;
+        $this->blogTable        = $blogTable;
+        $this->blogTableGateway = $blogTableGateway;
     }
 
     /**

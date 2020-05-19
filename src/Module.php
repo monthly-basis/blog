@@ -100,7 +100,8 @@ class Module
                 BlogService\Blogs::class => function ($serviceManager) {
                     return new BlogService\Blogs(
                         $serviceManager->get(BlogFactory\Blog::class),
-                        $serviceManager->get(BlogTable\Blog::class)
+                        $serviceManager->get(BlogTable\Blog::class),
+                        $serviceManager->get('laminas-db-table-gateway-table-gateway-blog')
                     );
                 },
                 BlogService\Blogs\User\Count::class => function ($serviceManager) {
