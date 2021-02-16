@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "abe5ce2eda17a5a6bceb9aabe88a28f8",
+    "content-hash": "c3d04a82c2556501690b708c764bc767",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -2825,7 +2825,7 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.22.0",
+            "version": "v1.22.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
