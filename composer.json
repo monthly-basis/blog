@@ -2,12 +2,12 @@
     "name": "leo-galleguillos/blog",
     "license": "MIT",
     "require": {
-        "leo-galleguillos/flash": "^1.0",
         "leo-galleguillos/image": "^1.0",
         "leo-galleguillos/re-captcha": "^2.0",
         "leo-galleguillos/string": "^1.0",
         "leo-galleguillos/test": "^1.0",
         "leo-galleguillos/user": "^1.0",
+        "monthly-basis/flash": "^2.0",
         "zendframework/zend-db": "^2.9",
         "zendframework/zend-test": "^3.1"
     },

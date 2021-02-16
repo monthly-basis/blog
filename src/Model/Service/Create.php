@@ -2,7 +2,7 @@
 namespace LeoGalleguillos\Blog\Model\Service;
 
 use Exception;
-use LeoGalleguillos\Flash\Model\Service as FlashService;
+use MonthlyBasis\Flash\Model\Service as FlashService;
 use LeoGalleguillos\Blog\Model\Entity as BlogEntity;
 use LeoGalleguillos\Blog\Model\Factory as BlogFactory;
 use LeoGalleguillos\Blog\Model\Service as BlogService;

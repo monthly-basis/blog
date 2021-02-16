@@ -3,7 +3,7 @@
 return [
     'modules' => [
         'LeoGalleguillos\Blog',
-        'LeoGalleguillos\Flash',
+        'MonthlyBasis\Flash',
         'LeoGalleguillos\String',
         'LeoGalleguillos\User',
         'Zend\Db',

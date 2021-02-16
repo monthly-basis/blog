@@ -6,7 +6,7 @@ use LeoGalleguillos\Blog\Model\Factory as BlogFactory;
 use LeoGalleguillos\Blog\Model\Service as BlogService;
 use LeoGalleguillos\Blog\Model\Table as BlogTable;
 use LeoGalleguillos\Blog\View\Helper as BlogHelper;
-use LeoGalleguillos\Flash\Model\Service as FlashService;
+use MonthlyBasis\Flash\Model\Service as FlashService;
 use LeoGalleguillos\String\Model\Service as StringService;
 use LeoGalleguillos\User\Model\Factory as UserFactory;
 use LeoGalleguillos\User\Model\Service as UserService;
