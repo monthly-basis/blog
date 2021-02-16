@@ -4,7 +4,7 @@ namespace LeoGalleguillos\BlogTest;
 use LeoGalleguillos\Blog\Module;
 use LeoGalleguillos\Test\ModuleTestCase;
 use PHPUnit\Framework\TestCase;
-use Zend\Mvc\Application;
+use Laminas\Mvc\Application;
 
 class ModuleTest extends ModuleTestCase
 {

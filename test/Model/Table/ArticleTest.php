@@ -4,7 +4,7 @@ namespace LeoGalleguillos\BlogTest\Model\Table;
 use Generator;
 use LeoGalleguillos\Blog\Model\Table as BlogTable;
 use LeoGalleguillos\BlogTest\TableTestCase;
-use Zend\Db\Adapter\Adapter;
+use Laminas\Db\Adapter\Adapter;
 use PHPUnit\Framework\TestCase;
 
 class ArticleTest extends TableTestCase

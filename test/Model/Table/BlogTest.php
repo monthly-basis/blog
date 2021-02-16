@@ -5,7 +5,7 @@ use Generator;
 use Laminas\Db as LaminasDb;
 use LeoGalleguillos\Blog\Model\Table as BlogTable;
 use LeoGalleguillos\Test\TableTestCase;
-use Zend\Db\Adapter\Adapter;
+use Laminas\Db\Adapter\Adapter;
 use PHPUnit\Framework\TestCase;
 
 class BlogTest extends TableTestCase

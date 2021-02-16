@@ -3,7 +3,7 @@ namespace LeoGalleguillos\Blog\View\Helper;
 
 use LeoGalleguillos\Blog\Model\Entity as BlogEntity;
 use LeoGalleguillos\Blog\Model\Service as BlogService;
-use Zend\View\Helper\AbstractHelper;
+use Laminas\View\Helper\AbstractHelper;
 
 class DoesVisitorOwnBlog extends AbstractHelper
 {

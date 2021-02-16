@@ -1,7 +1,7 @@
 <?php
 namespace LeoGalleguillos\Blog\Model\Table\Article;
 
-use Zend\Db\Adapter\Adapter;
+use Laminas\Db\Adapter\Adapter;
 
 class Deleted
 {
