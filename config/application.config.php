@@ -4,7 +4,7 @@ return [
     'modules' => [
         'LeoGalleguillos\Blog',
         'MonthlyBasis\Flash',
-        'LeoGalleguillos\String',
+        'MonthlyBasis\String',
         'LeoGalleguillos\User',
         'Zend\Db',
         'Zend\Router',

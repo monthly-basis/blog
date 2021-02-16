@@ -7,7 +7,7 @@ use LeoGalleguillos\Blog\Model\Entity as BlogEntity;
 use LeoGalleguillos\Blog\Model\Factory as BlogFactory;
 use LeoGalleguillos\Blog\Model\Service as BlogService;
 use LeoGalleguillos\Blog\Model\Table as BlogTable;
-use LeoGalleguillos\String\Model\Service as StringService;
+use MonthlyBasis\String\Model\Service as StringService;
 use LeoGalleguillos\User\Model\Entity as UserEntity;
 
 class Create
