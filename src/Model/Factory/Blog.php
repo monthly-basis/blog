@@ -4,7 +4,7 @@ namespace LeoGalleguillos\Blog\Model\Factory;
 use DateTime;
 use LeoGalleguillos\Blog\Model\Entity as BlogEntity;
 use LeoGalleguillos\Blog\Model\Table as BlogTable;
-use LeoGalleguillos\User\Model\Factory as UserFactory;
+use MonthlyBasis\User\Model\Factory as UserFactory;
 
 class Blog
 {

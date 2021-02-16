@@ -3,7 +3,7 @@ namespace LeoGalleguillos\BlogTest\Model\Entity;
 
 use DateTime;
 use LeoGalleguillos\Blog\Model\Entity as BlogEntity;
-use LeoGalleguillos\User\Model\Entity as UserEntity;
+use MonthlyBasis\User\Model\Entity as UserEntity;
 use PHPUnit\Framework\TestCase;
 
 class BlogTest extends TestCase

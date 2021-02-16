@@ -2,7 +2,7 @@
 namespace LeoGalleguillos\Blog\Model\Service\Blogs\User;
 
 use LeoGalleguillos\Blog\Model\Table as BlogTable;
-use LeoGalleguillos\User\Model\Entity as UserEntity;
+use MonthlyBasis\User\Model\Entity as UserEntity;
 
 class Count
 {

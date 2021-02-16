@@ -8,8 +8,8 @@ use LeoGalleguillos\Blog\Model\Table as BlogTable;
 use LeoGalleguillos\Blog\View\Helper as BlogHelper;
 use MonthlyBasis\Flash\Model\Service as FlashService;
 use MonthlyBasis\String\Model\Service as StringService;
-use LeoGalleguillos\User\Model\Factory as UserFactory;
-use LeoGalleguillos\User\Model\Service as UserService;
+use MonthlyBasis\User\Model\Factory as UserFactory;
+use MonthlyBasis\User\Model\Service as UserService;
 
 class Module
 {

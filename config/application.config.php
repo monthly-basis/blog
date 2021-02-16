@@ -5,7 +5,7 @@ return [
         'LeoGalleguillos\Blog',
         'MonthlyBasis\Flash',
         'MonthlyBasis\String',
-        'LeoGalleguillos\User',
+        'MonthlyBasis\User',
         'Zend\Db',
         'Zend\Router',
     ],
