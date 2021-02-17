@@ -6,7 +6,7 @@ use LeoGalleguillos\Blog\Model\Entity as BlogEntity;
 use LeoGalleguillos\Blog\Model\Factory as BlogFactory;
 use LeoGalleguillos\Blog\Model\Service as BlogService;
 use LeoGalleguillos\Blog\Model\Table as BlogTable;
-use LeoGalleguillos\Test\Hydrator as TestHydrator;
+use MonthlyBasis\LaminasTest\Hydrator as TestHydrator;
 use PHPUnit\Framework\TestCase;
 
 class BlogsTest extends TestCase

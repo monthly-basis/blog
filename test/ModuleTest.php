@@ -2,7 +2,7 @@
 namespace LeoGalleguillos\BlogTest;
 
 use LeoGalleguillos\Blog\Module;
-use LeoGalleguillos\Test\ModuleTestCase;
+use MonthlyBasis\LaminasTest\ModuleTestCase;
 use PHPUnit\Framework\TestCase;
 use Laminas\Mvc\Application;
 

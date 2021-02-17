@@ -4,7 +4,7 @@ namespace LeoGalleguillos\BlogTest\Model\Table;
 use Generator;
 use Laminas\Db as LaminasDb;
 use LeoGalleguillos\Blog\Model\Table as BlogTable;
-use LeoGalleguillos\Test\TableTestCase;
+use MonthlyBasis\LaminasTest\TableTestCase;
 use Laminas\Db\Adapter\Adapter;
 use PHPUnit\Framework\TestCase;
 
