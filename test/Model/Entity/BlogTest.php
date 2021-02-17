@@ -1,8 +1,8 @@
 <?php
-namespace LeoGalleguillos\BlogTest\Model\Entity;
+namespace MonthlyBasis\BlogTest\Model\Entity;
 
 use DateTime;
-use LeoGalleguillos\Blog\Model\Entity as BlogEntity;
+use MonthlyBasis\Blog\Model\Entity as BlogEntity;
 use MonthlyBasis\User\Model\Entity as UserEntity;
 use PHPUnit\Framework\TestCase;
 

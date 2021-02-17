@@ -1,9 +1,9 @@
 <?php
-namespace LeoGalleguillos\BlogTest\Model\Table;
+namespace MonthlyBasis\BlogTest\Model\Table;
 
 use Generator;
 use Laminas\Db as LaminasDb;
-use LeoGalleguillos\Blog\Model\Table as BlogTable;
+use MonthlyBasis\Blog\Model\Table as BlogTable;
 use MonthlyBasis\LaminasTest\TableTestCase;
 use Laminas\Db\Adapter\Adapter;
 use PHPUnit\Framework\TestCase;

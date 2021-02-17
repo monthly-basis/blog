@@ -1,7 +1,7 @@
 <?php
-namespace LeoGalleguillos\Blog\Model\Service;
+namespace MonthlyBasis\Blog\Model\Service;
 
-use LeoGalleguillos\Blog\Model\Entity as BlogEntity;
+use MonthlyBasis\Blog\Model\Entity as BlogEntity;
 
 class RootRelativeUrl
 {

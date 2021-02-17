@@ -4,7 +4,7 @@ return [
     'modules' => [
         'Laminas\Db',
         'Laminas\Router',
-        'LeoGalleguillos\Blog',
+        'MonthlyBasis\Blog',
         'MonthlyBasis\Flash',
         'MonthlyBasis\String',
         'MonthlyBasis\User',

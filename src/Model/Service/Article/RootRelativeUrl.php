@@ -1,11 +1,11 @@
 <?php
-namespace LeoGalleguillos\Blog\Model\Service\Article;
+namespace MonthlyBasis\Blog\Model\Service\Article;
 
 use Generator;
-use LeoGalleguillos\Blog\Model\Entity as BlogEntity;
-use LeoGalleguillos\Blog\Model\Factory as BlogFactory;
-use LeoGalleguillos\Blog\Model\Service as BlogService;
-use LeoGalleguillos\Blog\Model\Table as BlogTable;
+use MonthlyBasis\Blog\Model\Entity as BlogEntity;
+use MonthlyBasis\Blog\Model\Factory as BlogFactory;
+use MonthlyBasis\Blog\Model\Service as BlogService;
+use MonthlyBasis\Blog\Model\Table as BlogTable;
 use MonthlyBasis\String\Model\Service as StringService;
 
 class RootRelativeUrl

@@ -1,8 +1,8 @@
 <?php
-namespace LeoGalleguillos\Blog\Model\Service\Article;
+namespace MonthlyBasis\Blog\Model\Service\Article;
 
-use LeoGalleguillos\Blog\Model\Entity as BlogEntity;
-use LeoGalleguillos\Blog\Model\Service as BlogService;
+use MonthlyBasis\Blog\Model\Entity as BlogEntity;
+use MonthlyBasis\Blog\Model\Service as BlogService;
 
 class Url
 {

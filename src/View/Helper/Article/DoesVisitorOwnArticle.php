@@ -1,8 +1,8 @@
 <?php
-namespace LeoGalleguillos\Blog\View\Helper\Article;
+namespace MonthlyBasis\Blog\View\Helper\Article;
 
-use LeoGalleguillos\Blog\Model\Entity as BlogEntity;
-use LeoGalleguillos\Blog\Model\Service as BlogService;
+use MonthlyBasis\Blog\Model\Entity as BlogEntity;
+use MonthlyBasis\Blog\Model\Service as BlogService;
 use Laminas\View\Helper\AbstractHelper;
 
 class DoesVisitorOwnArticle extends AbstractHelper

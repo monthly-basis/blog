@@ -1,9 +1,9 @@
 <?php
-namespace LeoGalleguillos\Blog\Model\Factory;
+namespace MonthlyBasis\Blog\Model\Factory;
 
 use DateTime;
-use LeoGalleguillos\Blog\Model\Entity as BlogEntity;
-use LeoGalleguillos\Blog\Model\Table as BlogTable;
+use MonthlyBasis\Blog\Model\Entity as BlogEntity;
+use MonthlyBasis\Blog\Model\Table as BlogTable;
 use MonthlyBasis\User\Model\Factory as UserFactory;
 
 class Blog

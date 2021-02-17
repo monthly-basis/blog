@@ -1,7 +1,7 @@
 <?php
-namespace LeoGalleguillos\BlogTest;
+namespace MonthlyBasis\BlogTest;
 
-use LeoGalleguillos\Blog\Module;
+use MonthlyBasis\Blog\Module;
 use MonthlyBasis\LaminasTest\ModuleTestCase;
 use PHPUnit\Framework\TestCase;
 use Laminas\Mvc\Application;

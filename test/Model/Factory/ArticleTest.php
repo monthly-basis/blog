@@ -1,12 +1,12 @@
 <?php
-namespace LeoGalleguillos\BlogTest\Model\Factory;
+namespace MonthlyBasis\BlogTest\Model\Factory;
 
 use DateTime;
 use Generator;
-use LeoGalleguillos\Blog\Model\Entity as BlogEntity;
-use LeoGalleguillos\Blog\Model\Factory as BlogFactory;
-use LeoGalleguillos\Blog\Model\Service as BlogService;
-use LeoGalleguillos\Blog\Model\Table as BlogTable;
+use MonthlyBasis\Blog\Model\Entity as BlogEntity;
+use MonthlyBasis\Blog\Model\Factory as BlogFactory;
+use MonthlyBasis\Blog\Model\Service as BlogService;
+use MonthlyBasis\Blog\Model\Table as BlogTable;
 use PHPUnit\Framework\TestCase;
 
 class ArticleTest extends TestCase

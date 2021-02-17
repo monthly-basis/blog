@@ -1,11 +1,11 @@
 <?php
-namespace LeoGalleguillos\Blog;
+namespace MonthlyBasis\Blog;
 
 use Laminas\Db as LaminasDb;
-use LeoGalleguillos\Blog\Model\Factory as BlogFactory;
-use LeoGalleguillos\Blog\Model\Service as BlogService;
-use LeoGalleguillos\Blog\Model\Table as BlogTable;
-use LeoGalleguillos\Blog\View\Helper as BlogHelper;
+use MonthlyBasis\Blog\Model\Factory as BlogFactory;
+use MonthlyBasis\Blog\Model\Service as BlogService;
+use MonthlyBasis\Blog\Model\Table as BlogTable;
+use MonthlyBasis\Blog\View\Helper as BlogHelper;
 use MonthlyBasis\Flash\Model\Service as FlashService;
 use MonthlyBasis\String\Model\Service as StringService;
 use MonthlyBasis\User\Model\Factory as UserFactory;
