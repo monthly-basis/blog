@@ -20,12 +20,14 @@ class RootRelativeUrlTest extends TestCase
         $this->rootRelativeUrlServiceMock = $this->createMock(
             BlogService\RootRelativeUrl::class
         );
-        $this->urlFriendlyService = new StringService\UrlFriendly();
+        $this->urlFriendlyServiceMock = $this->createMock(
+            StringService\UrlFriendly::class
+        );
 
         $this->rootRelativeUrlService = new BlogService\Article\RootRelativeUrl(
             $this->blogFactoryMock,
             $this->rootRelativeUrlServiceMock,
-            $this->urlFriendlyService
+            $this->urlFriendlyServiceMock
         );
     }
 
